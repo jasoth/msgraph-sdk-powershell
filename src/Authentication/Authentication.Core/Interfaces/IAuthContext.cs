@@ -58,5 +58,6 @@ namespace Microsoft.Graph.PowerShell.Authentication
         SecureString ClientSecret { get; set; }
         SigninUi SigninUi { get; set; }
         SecureString ClientSecret { get; set; }
+        SigninUi SigninUi { get; set; }
     }
 }
