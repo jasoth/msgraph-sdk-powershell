@@ -180,6 +180,7 @@ namespace Microsoft.Graph.PowerShell.Authentication.Cmdlets
                             // Default to CurrentUser but allow the customer to change this via `-ContextScope`.
                             authContext.ContextScope = this.IsParameterBound(nameof(ContextScope)) ? ContextScope : ContextScope.CurrentUser;
                             authContext.TokenCredentialType = UseDeviceCode ? TokenCredentialType.DeviceCode : TokenCredentialType.InteractiveBrowser;
+                            authContext.SigninUi = this.IsParameterBound(nameof(SigninUi)) ? SigninUi : SigninUi.Browser;
                         }
                         break;
                     case Constants.AppCertificateParameterSet:
