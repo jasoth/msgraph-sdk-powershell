@@ -33,6 +33,7 @@
     <file src="artifacts\Dependencies\Microsoft.IdentityModel.JsonWebTokens.dll" target="Dependencies" />
     <file src="artifacts\Dependencies\Microsoft.Identity.Client.Extensions.Msal.dll" target="Dependencies" />
     <file src="artifacts\Dependencies\Microsoft.Identity.Client.Broker.dll" target="Dependencies" />
+    <file src="artifacts\Dependencies\Microsoft.Identity.Client.NativeInterop.dll" target="Dependencies" />
     <file src="artifacts\Dependencies\Microsoft.IdentityModel.Tokens.dll" target="Dependencies" />
     <file src="artifacts\Dependencies\Microsoft.IdentityModel.Logging.dll" target="Dependencies" />
     <file src="artifacts\Dependencies\System.IdentityModel.Tokens.Jwt.dll" target="Dependencies" />
@@ -44,6 +45,7 @@
     <file src="artifacts\Dependencies\System.Text.Encodings.Web.dll" target="Dependencies" />
     <file src="artifacts\Dependencies\System.Buffers.dll" target="Dependencies" />
     <file src="artifacts\Dependencies\System.Numerics.Vectors.dll" target="Dependencies" />
+    <file src="artifacts\Dependencies\Core\runtimes\win-x64\native\" target="Dependencies" />
     <!-- Copy framework dependent assemblies to respective framework directory. -->
     <!-- Core-->
     <file src="artifacts\Dependencies\Core\Microsoft.Graph.Core.dll" target="Dependencies\Core" />

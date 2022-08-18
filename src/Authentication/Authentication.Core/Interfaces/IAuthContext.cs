@@ -57,5 +57,6 @@ namespace Microsoft.Graph.PowerShell.Authentication
         Version PSHostVersion { get; set; }
         SecureString ClientSecret { get; set; }
         SigninUi SigninUi { get; set; }
+        SecureString ClientSecret { get; set; }
     }
 }

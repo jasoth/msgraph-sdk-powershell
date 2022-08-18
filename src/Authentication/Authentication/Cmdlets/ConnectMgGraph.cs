@@ -101,6 +101,9 @@ namespace Microsoft.Graph.PowerShell.Authentication.Cmdlets
         [Parameter(Mandatory = false, DontShow = true, HelpMessage = "Wait for .NET debugger to attach")]
         public SwitchParameter Break { get; set; }
 
+        [Parameter(ParameterSetName = Constants.UserParameterSet, Mandatory = false, HelpMessage = HelpMessages.SigninUi)]
+        public SigninUi SigninUi { get; set; }
+
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         private IGraphEnvironment environment;
 
