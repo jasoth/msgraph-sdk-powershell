@@ -55,9 +55,8 @@ namespace Microsoft.Graph.PowerShell.Authentication
         X509Certificate2 Certificate { get; set; }
         ContextScope ContextScope { get; set; }
         Version PSHostVersion { get; set; }
-        SecureString ClientSecret { get; set; }
+        TimeSpan ClientTimeout { get; set; }
         SigninUi SigninUi { get; set; }
         SecureString ClientSecret { get; set; }
-        SigninUi SigninUi { get; set; }
     }
 }

@@ -2,10 +2,11 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\Repo.props" />
   <PropertyGroup>
     <LangVersion>9.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
     <TargetFrameworks>netstandard2.0;net6.0;net472</TargetFrameworks>
     <RootNamespace>Microsoft.Graph.PowerShell.Authentication.Core</RootNamespace>
     <VersionPrefix>2.0.0</VersionPrefix>
-    <VersionSuffix>preview2</VersionSuffix>
+    <VersionSuffix>preview3</VersionSuffix>
   </PropertyGroup>
   <PropertyGroup>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
@@ -13,16 +14,17 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Core" Version="1.25.0" />
-    <PackageReference Include="Azure.Identity" Version="1.6.1" />
+    <PackageReference Include="Azure.Identity" Version="1.7.0" />
     <PackageReference Include="Azure.Identity.BrokeredAuthentication" Version="1.0.0-beta.3" />
-    <PackageReference Include="Microsoft.Graph.Core" Version="2.0.9" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.45.0" />
-    <PackageReference Include="Microsoft.Identity.Client.Broker" Version="4.45.0-preview" />
-    <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="2.21.0" />
-    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="6.19.0" />
-    <PackageReference Include="Microsoft.IdentityModel.Logging" Version="6.22.0" />
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.22.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.22.0" />
+    <PackageReference Include="Microsoft.Graph.Core" Version="2.0.14" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.47.2" />
+    <PackageReference Include="Microsoft.Identity.Client.Broker" Version="4.47.2-preview" />
+    <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="2.24.0" />
+    <PackageReference Include="Microsoft.Identity.Client.NativeInterop" Version="0.13.0" />
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="6.23.1" />
+    <PackageReference Include="Microsoft.IdentityModel.Logging" Version="6.23.1" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.23.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.23.1" />
     <!--Always ensure this version matches the versions of System.Security.Cryptography.* dependencies of Microsoft.Identity.Client when targeting PowerShell 6 and below.-->
     <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
