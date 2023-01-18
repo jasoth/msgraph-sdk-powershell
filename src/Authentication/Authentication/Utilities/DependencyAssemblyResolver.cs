@@ -14,21 +14,21 @@ namespace Microsoft.Graph.PowerShell.Authentication.Utilities
         // Catalog our dependencies here to ensure we don't load anything else.
         private static IReadOnlyDictionary<string, Version> Dependencies = new Dictionary<string, Version>
         {
-            { "Azure.Core", new Version("1.25.0") },
-            { "Azure.Identity", new Version("1.6.1") },
+            { "Azure.Core", new Version("1.27.0") },
+            { "Azure.Identity", new Version("1.8.1") },
             { "Microsoft.Bcl.AsyncInterfaces", new Version("6.0.0") },
-            { "Microsoft.Graph.Core", new Version("2.0.11") },
-            { "Microsoft.Identity.Client", new Version("4.46.0") },
-            { "Microsoft.Identity.Client.Extensions.Msal", new Version("2.23.0") },
-            { "Microsoft.IdentityModel.Abstractions", new Version("6.22.0") },
-            { "Microsoft.IdentityModel.JsonWebTokens", new Version("6.22.0") },
-            { "Microsoft.IdentityModel.Logging", new Version("6.22.0") },
-            { "Microsoft.IdentityModel.Tokens", new Version("6.22.0") },
-            { "System.IdentityModel.Tokens.Jwt", new Version("6.22.0") },
-            { "System.Security.Cryptography.ProtectedData", new Version("6.0.0") },
-            { "Newtonsoft.Json", new Version("13.0.1") },
-            { "System.Text.Json", new Version("6.0.5") },
-            { "System.Text.Encodings.Web", new Version("6.0.0") },
+            { "Microsoft.Graph.Core", new Version("2.0.14") },
+            { "Microsoft.Identity.Client", new Version("4.49.1") },
+            { "Microsoft.Identity.Client.Extensions.Msal", new Version("2.25.3") },
+            { "Microsoft.IdentityModel.Abstractions", new Version("6.25.1") },
+            { "Microsoft.IdentityModel.JsonWebTokens", new Version("6.25.1") },
+            { "Microsoft.IdentityModel.Logging", new Version("6.25.1") },
+            { "Microsoft.IdentityModel.Tokens", new Version("6.25.1") },
+            { "System.IdentityModel.Tokens.Jwt", new Version("6.25.1") },
+            { "System.Security.Cryptography.ProtectedData", new Version("7.0.0") },
+            { "Newtonsoft.Json", new Version("13.0.2") },
+            { "System.Text.Json", new Version("7.0.1") },
+            { "System.Text.Encodings.Web", new Version("7.0.1") },
             { "System.Threading.Tasks.Extensions", new Version("4.5.4") },
             { "System.Diagnostics.DiagnosticSource", new Version("4.0.4") },
             { "System.Runtime.CompilerServices.Unsafe", new Version("4.0.4") },
@@ -63,14 +63,7 @@ namespace Microsoft.Graph.PowerShell.Authentication.Utilities
         /// <param name="isDesktopEdition"></param>
         public static void Initialize(bool isDesktopEdition = false)
         {
-            if (isDesktopEdition)
-            {
-                FrameworkDependenciesDirPath = "Desktop";
-            }
-            else
-            {
-                FrameworkDependenciesDirPath = "Core";
-            }
+            FrameworkDependenciesDirPath = isDesktopEdition ? "Desktop" : "Core";
             // Set up our event handler when the module is loaded.
             AppDomain.CurrentDomain.AssemblyResolve += HandleResolveEvent;
         }
@@ -95,14 +88,9 @@ namespace Microsoft.Graph.PowerShell.Authentication.Utilities
                     && (requiredVersion.Major >= assemblymName.Version.Major || string.Equals(assemblymName.Name, "Newtonsoft.Json", StringComparison.OrdinalIgnoreCase)))
                 {
                     string requiredAssemblyPath = string.Empty;
-                    if (MultiFrameworkDependencies.Contains(assemblymName.Name))
-                    {
-                        requiredAssemblyPath = Path.Combine(DependenciesDirPath, FrameworkDependenciesDirPath, $"{assemblymName.Name}.dll");
-                    }
-                    else
-                    {
-                        requiredAssemblyPath = Path.Combine(DependenciesDirPath, $"{assemblymName.Name}.dll");
-                    }
+                    requiredAssemblyPath = MultiFrameworkDependencies.Contains(assemblymName.Name)
+                        ? Path.Combine(DependenciesDirPath, FrameworkDependenciesDirPath, $"{assemblymName.Name}.dll")
+                        : Path.Combine(DependenciesDirPath, $"{assemblymName.Name}.dll");
                     return Assembly.LoadFile(requiredAssemblyPath);
                 }
             }
