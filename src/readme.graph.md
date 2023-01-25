@@ -294,6 +294,7 @@ directive:
         properties:
           - Id
           - DeletedDateTime
+          - AdditionalProperties
   - where:
       model-name: ^MicrosoftGraphPlace\d*$
     set:
