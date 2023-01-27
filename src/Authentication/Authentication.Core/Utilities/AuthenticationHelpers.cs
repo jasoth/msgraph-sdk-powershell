@@ -3,9 +3,7 @@
 // ------------------------------------------------------------------------------
 using Azure.Core;
 using Azure.Core.Diagnostics;
-using Azure.Core.Diagnostics;
 using Azure.Identity;
-using Azure.Identity.BrokeredAuthentication;
 using Azure.Identity.BrokeredAuthentication;
 using Microsoft.Graph.PowerShell.Authentication.Core.Extensions;
 using Microsoft.Identity.Client;
